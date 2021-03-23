@@ -1,0 +1,290 @@
+Days to buy prior items: 3650
+Days to buy posterior items: 365
+Max number of recommendations: 10
+Validation fraction: 0.2
+embedding_dim: 10
+Confusion matrix: 
+             Actual_0 Actual_1
+Predicted_0       tn       fn
+Predicted_1       fp       tp 
+
+WDL normal threshold == 0.5:
+ {'Accuracy': 0.8891212196095577, 'Misclassification': 0.11087878039044234, 'Confusion_Matrix':                True No  True Buy
+Predicted No     93308       289
+Predicted Buy    11377       240, 'Labels': {'No': {'Precision': 0.9969122941974636, 'Recall': 0.891321583799016, 'F1': 0.9411646039479126}, 'Buy': {'Precision': 0.020659378497030215, 'Recall': 0.45368620037807184, 'F1': 0.039519183270212414}}} 
+
+WDL threshold == 0.93:
+ {'Accuracy': 0.9821791776759747, 'Misclassification': 0.01782082232402532, 'Confusion_Matrix':                True No  True Buy
+Predicted No    103292       482
+Predicted Buy     1393        47, 'Labels': {'No': {'Precision': 0.9953552913061074, 'Recall': 0.9866934135740555, 'F1': 0.991005425527322}, 'Buy': {'Precision': 0.03263888888888889, 'Recall': 0.0888468809073724, 'F1': 0.04773996952767902}}} 
+
+DeepFM normal threshold == 0.5:
+ {'Accuracy': 0.8809759157526564, 'Misclassification': 0.11902408424734351, 'Confusion_Matrix':                True No  True Buy
+Predicted No     92477       315
+Predicted Buy    12208       214, 'Labels': {'No': {'Precision': 0.9966053108026554, 'Recall': 0.8833834837846873, 'F1': 0.9365850200276488}, 'Buy': {'Precision': 0.017227499597488326, 'Recall': 0.4045368620037807, 'F1': 0.033047641108794684}}} 
+
+DeepFM threshold == 0.9:
+ {'Accuracy': 0.9696143098827152, 'Misclassification': 0.030385690117284772, 'Confusion_Matrix':                True No  True Buy
+Predicted No    101937       449
+Predicted Buy     2748        80, 'Labels': {'No': {'Precision': 0.9956146348133534, 'Recall': 0.9737498208912452, 'F1': 0.9845608511090399}, 'Buy': {'Precision': 0.028288543140028287, 'Recall': 0.15122873345935728, 'F1': 0.04766160262138814}}} 
+
+NFM normal threshold == 0.5:
+ {'Accuracy': 0.8563214020947783, 'Misclassification': 0.14367859790522175, 'Confusion_Matrix':                True No  True Buy
+Predicted No     89807       239
+Predicted Buy    14878       290, 'Labels': {'No': {'Precision': 0.9973458010350266, 'Recall': 0.8578783970960501, 'F1': 0.9223698332571599}, 'Buy': {'Precision': 0.019119198312236286, 'Recall': 0.5482041587901701, 'F1': 0.036949735618271}}} 
+
+NFM threshold == 0.81:
+ {'Accuracy': 0.9359971106506738, 'Misclassification': 0.06400288934932613, 'Confusion_Matrix':                True No  True Buy
+Predicted No     98321       370
+Predicted Buy     6364       159, 'Labels': {'No': {'Precision': 0.996250924603054, 'Recall': 0.939208100491952, 'F1': 0.9668889151128944}, 'Buy': {'Precision': 0.02437528744442741, 'Recall': 0.3005671077504726, 'F1': 0.04509359047078843}}} 
+
+
+    nIntersection = len(trueItemsPosterior.intersection(topRecomItems))
+    nUnion = len(trueItemsPosterior.union(topRecomItems))      
+    tp = len(topRecomItems.intersection(trueItemsPosterior))
+    fp = nRecommendations - tp
+    tmp1 = itemsSet.difference(trueItemsPosterior)
+    tmp2 = itemsSet.difference(topRecomItems)
+    tn = len(tmp1.intersection(tmp2))
+    fn = mPosterior - tp
+    Accuracy = (TP + TN) / (TP + TN + FP + FN)
+    Jaccard = nIntersections / nUnion for first N recommendationd
+    Precision = tp / (tp + fp) or tp / nRecommendations
+    Recall = tp / (tp + fn)
+    F1 = 2 * Precision * Recall / (Precision + Recall)    
+    
+Number of first top recommendations: 1
+
+Algorithm 1
+Accuracy for first 1 recommendations: 0.971264
+Jaccard for first 1 recommendations: 0.048174
+Precision for first 1 recommendations: 0.085616
+Recall for first 1 recommendations: 0.048174
+F1 for first 1 recommendations: 0.056838
+
+Algorithm 2
+Accuracy for first 1 recommendations: 0.971314
+Jaccard for first 1 recommendations: 0.049458
+Precision for first 1 recommendations: 0.082192
+Recall for first 1 recommendations: 0.049458
+F1 for first 1 recommendations: 0.057219
+
+Algorithm 3
+Accuracy for first 1 recommendations: 0.973132
+Jaccard for first 1 recommendations: 0.080258
+Precision for first 1 recommendations: 0.188356
+Recall for first 1 recommendations: 0.080258
+F1 for first 1 recommendations: 0.099601
+
+Algorithm 4
+Accuracy for first 1 recommendations: 0.972136
+Jaccard for first 1 recommendations: 0.074937
+Precision for first 1 recommendations: 0.133562
+Recall for first 1 recommendations: 0.074937
+F1 for first 1 recommendations: 0.086775
+
+Algorithm 5
+Accuracy for first 1 recommendations: 0.972509
+Jaccard for first 1 recommendations: 0.090520
+Precision for first 1 recommendations: 0.154110
+Recall for first 1 recommendations: 0.090520
+F1 for first 1 recommendations: 0.103363
+
+Algorithm 6
+Accuracy for first 1 recommendations: 0.972136
+Jaccard for first 1 recommendations: 0.065039
+Precision for first 1 recommendations: 0.133562
+Recall for first 1 recommendations: 0.065039
+F1 for first 1 recommendations: 0.077865
+
+Number of test clients that have 1 posterior items: 292
+
+
+Number of first top recommendations: 2
+
+Algorithm 1
+Accuracy for first 2 recommendations: 0.948793
+Jaccard for first 2 recommendations: 0.054067
+Precision for first 2 recommendations: 0.101562
+Recall for first 2 recommendations: 0.070768
+F1 for first 2 recommendations: 0.078962
+
+Algorithm 2
+Accuracy for first 2 recommendations: 0.949491
+Jaccard for first 2 recommendations: 0.055630
+Precision for first 2 recommendations: 0.105469
+Recall for first 2 recommendations: 0.070378
+F1 for first 2 recommendations: 0.079892
+
+Algorithm 3
+Accuracy for first 2 recommendations: 0.960582
+Jaccard for first 2 recommendations: 0.165405
+Precision for first 2 recommendations: 0.425781
+Recall for first 2 recommendations: 0.201655
+F1 for first 2 recommendations: 0.256879
+
+Algorithm 4
+Accuracy for first 2 recommendations: 0.952060
+Jaccard for first 2 recommendations: 0.085739
+Precision for first 2 recommendations: 0.191406
+Recall for first 2 recommendations: 0.110866
+F1 for first 2 recommendations: 0.130390
+
+Algorithm 5
+Accuracy for first 2 recommendations: 0.953622
+Jaccard for first 2 recommendations: 0.101420
+Precision for first 2 recommendations: 0.234375
+Recall for first 2 recommendations: 0.127607
+F1 for first 2 recommendations: 0.153257
+
+Algorithm 6
+Accuracy for first 2 recommendations: 0.954616
+Jaccard for first 2 recommendations: 0.111713
+Precision for first 2 recommendations: 0.261719
+Recall for first 2 recommendations: 0.138880
+F1 for first 2 recommendations: 0.168424
+
+Number of test clients that have 2 posterior items: 128
+
+
+Number of first top recommendations: 3
+
+Algorithm 1
+Accuracy for first 3 recommendations: 0.926504
+Jaccard for first 3 recommendations: 0.050620
+Precision for first 3 recommendations: 0.098592
+Recall for first 3 recommendations: 0.058685
+F1 for first 3 recommendations: 0.072338
+
+Algorithm 2
+Accuracy for first 3 recommendations: 0.928375
+Jaccard for first 3 recommendations: 0.055315
+Precision for first 3 recommendations: 0.103286
+Recall for first 3 recommendations: 0.062676
+F1 for first 3 recommendations: 0.076530
+
+Algorithm 3
+Accuracy for first 3 recommendations: 0.958003
+Jaccard for first 3 recommendations: 0.320676
+Precision for first 3 recommendations: 0.676056
+Recall for first 3 recommendations: 0.360166
+F1 for first 3 recommendations: 0.459138
+
+Algorithm 4
+Accuracy for first 3 recommendations: 0.934699
+Jaccard for first 3 recommendations: 0.103439
+Precision for first 3 recommendations: 0.248826
+Recall for first 3 recommendations: 0.131964
+F1 for first 3 recommendations: 0.168200
+
+Algorithm 5
+Accuracy for first 3 recommendations: 0.934443
+Jaccard for first 3 recommendations: 0.102869
+Precision for first 3 recommendations: 0.244131
+Recall for first 3 recommendations: 0.131383
+F1 for first 3 recommendations: 0.166465
+
+Algorithm 6
+Accuracy for first 3 recommendations: 0.939309
+Jaccard for first 3 recommendations: 0.144090
+Precision for first 3 recommendations: 0.333333
+Recall for first 3 recommendations: 0.179712
+F1 for first 3 recommendations: 0.227354
+
+Number of test clients that have 3 posterior items: 71
+
+
+Number of first top recommendations: 4
+
+Algorithm 1
+Accuracy for first 4 recommendations: 0.914484
+Jaccard for first 4 recommendations: 0.064737
+Precision for first 4 recommendations: 0.101695
+Recall for first 4 recommendations: 0.077401
+F1 for first 4 recommendations: 0.086817
+
+Algorithm 2
+Accuracy for first 4 recommendations: 0.917490
+Jaccard for first 4 recommendations: 0.069418
+Precision for first 4 recommendations: 0.105932
+Recall for first 4 recommendations: 0.078672
+F1 for first 4 recommendations: 0.089171
+
+Algorithm 3
+Accuracy for first 4 recommendations: 0.965948
+Jaccard for first 4 recommendations: 0.503205
+Precision for first 4 recommendations: 0.809322
+Recall for first 4 recommendations: 0.553644
+F1 for first 4 recommendations: 0.644179
+
+Algorithm 4
+Accuracy for first 4 recommendations: 0.928351
+Jaccard for first 4 recommendations: 0.144222
+Precision for first 4 recommendations: 0.292373
+Recall for first 4 recommendations: 0.193811
+F1 for first 4 recommendations: 0.228825
+
+Algorithm 5
+Accuracy for first 4 recommendations: 0.928043
+Jaccard for first 4 recommendations: 0.144405
+Precision for first 4 recommendations: 0.288136
+Recall for first 4 recommendations: 0.189977
+F1 for first 4 recommendations: 0.225332
+
+Algorithm 6
+Accuracy for first 4 recommendations: 0.937904
+Jaccard for first 4 recommendations: 0.211413
+Precision for first 4 recommendations: 0.423729
+Recall for first 4 recommendations: 0.283010
+F1 for first 4 recommendations: 0.333116
+
+Number of test clients that have 4 posterior items: 59
+
+
+Number of first top recommendations: 5
+
+Algorithm 1
+Accuracy for first 5 recommendations: 0.900207
+Jaccard for first 5 recommendations: 0.074224
+Precision for first 5 recommendations: 0.100000
+Recall for first 5 recommendations: 0.084659
+F1 for first 5 recommendations: 0.091036
+
+Algorithm 2
+Accuracy for first 5 recommendations: 0.905057
+Jaccard for first 5 recommendations: 0.080566
+Precision for first 5 recommendations: 0.109091
+Recall for first 5 recommendations: 0.090341
+F1 for first 5 recommendations: 0.098029
+
+Algorithm 3
+Accuracy for first 5 recommendations: 0.971694
+Jaccard for first 5 recommendations: 0.640366
+Precision for first 5 recommendations: 0.886364
+Recall for first 5 recommendations: 0.671778
+F1 for first 5 recommendations: 0.754170
+
+Algorithm 4
+Accuracy for first 5 recommendations: 0.922107
+Jaccard for first 5 recommendations: 0.193612
+Precision for first 5 recommendations: 0.340909
+Recall for first 5 recommendations: 0.263662
+F1 for first 5 recommendations: 0.293835
+
+Algorithm 5
+Accuracy for first 5 recommendations: 0.919628
+Jaccard for first 5 recommendations: 0.175847
+Precision for first 5 recommendations: 0.313636
+Recall for first 5 recommendations: 0.243010
+F1 for first 5 recommendations: 0.270472
+
+Algorithm 6
+Accuracy for first 5 recommendations: 0.930785
+Jaccard for first 5 recommendations: 0.250743
+Precision for first 5 recommendations: 0.436364
+Recall for first 5 recommendations: 0.335200
+F1 for first 5 recommendations: 0.374617
+
+Number of test clients that have 5 posterior items: 44
+
+
